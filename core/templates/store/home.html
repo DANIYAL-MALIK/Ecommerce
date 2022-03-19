@@ -1,0 +1,37 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock %}
+{% block content %}
+      <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Search,Read,Buy and Review</h1>
+        <p class="lead text-muted"></p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Login</a>
+          <a href="#" class="btn btn-secondary my-2">Signup</a>
+        </p>
+      </div>
+    </div>
+  </section>
+    <div class="container">
+    <div class="pb-3 h5">All Books</div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+        {% for p in products %}
+            <div class="col">
+            <div class="card shadow-sm">
+                <img class="img-fluid" alt="Responsive image" src="{{ p.image.url }}">
+            <div class="card-body">
+              <p class="card-text"><a class="text-dark text-decoration:none">{{ p.title }}</a></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">{{ p.created }}</small>
+              </div>
+            </div>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}
